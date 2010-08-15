@@ -9,12 +9,12 @@
 
 
 int m1GoFaster(howMuch) {
-	char i;
-	if (OCR1A < 255) {
-		for (i = 1; i <= howMuch; i++) {
-			OCR1A++;
-		}
-	}
+	//unsigned char i;
+	unsigned char oldValue = OCR1A;
+	unsigned int newValue = oldValue + howMuch;
+	
+	OCR1A = (newValue > 255) ? 255 : OCR1A + howMuch;
+	
 	return 0;
 }
 
